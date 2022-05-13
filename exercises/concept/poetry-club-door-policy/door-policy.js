@@ -49,7 +49,8 @@ export function frontDoorPassword(word) {
  * @returns {string}
  */
 export function backDoorResponse(line) {
-  return line.slice(line.length - 1, line.length).trim();
+  const noSpace = line.trim();
+  return line.substring(noSpace.length, noSpace.length -1);
 }
 
 /**
@@ -60,5 +61,5 @@ export function backDoorResponse(line) {
  * @returns {string} the back door password
  */
 export function backDoorPassword(word) {
-  return word.toUpperCase() + ' , please';
+  return word.charAt(0).toUpperCase() + word.substring(1, word.length).toLowerCase() + ', please';
 }
